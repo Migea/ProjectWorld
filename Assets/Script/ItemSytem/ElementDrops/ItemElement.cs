@@ -10,30 +10,21 @@ public class ItemElement : ItemBase
     
     [Dropdown("ElementTypes")]
     public ElementBase _element;
+    private readonly ElementBase[] ElementGroups = ObjectGroups.ElementGroups;
 
-
-
-    private ElementBase[] ElementTypes = new ElementBase[] {ObjectGroups.FireStatic, ObjectGroups.IceStatic, ObjectGroups.LightStatic};
-    
 
 
     #region property
-    public ElementBase Element
-    {
-        get
-        {
-            return _element;
-        }
-        set
-        {
-            _element = value;
-        }
-    }
+    public ElementBase Element => _element;
     #endregion
 
 
     protected override void Awake()
     {
+        if (_element == null)
+        {
+            _element = ElementGroups[UnityEngine.Random.Range(0, ElementGroups.Length)];
+        }
         _itemName = _element.ItemName;
         base.Awake();
         
@@ -46,6 +37,9 @@ public class ItemElement : ItemBase
         if (player != null)
         {
             _element.AddToPlayerInventory(player);
+
+            //particals instantiate
+
             Destroy(gameObject);
         }
         

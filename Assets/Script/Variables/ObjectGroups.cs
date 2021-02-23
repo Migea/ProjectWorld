@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Globalization;
 using System;
 
 public static class ObjectGroups
@@ -13,18 +14,26 @@ public static class ObjectGroups
     public static ElementLight LightStatic { get; private set; } = new ElementLight();
     #endregion
 
-    #region itemNames
-    public static string ItemFire = "Element Fire";
-    public static string ItemIce = "Element Ice";
-    public static string ItemLight = "Element Light";
 
+
+    #region itemNames
+    public static readonly string ItemFire = "Element Fire";
+    public static readonly string ItemIce = "Element Ice";
+    public static readonly string Light = "Element Light";
+    #endregion
+
+
+    #region IceUpgradeCode
+    public static readonly int IncreaseControlTime = 0;
+    public static readonly int IncreaseDamage = 1;
+    public static readonly int IncreaseSlowRate = 2;
     #endregion
 
 
 
 
     #region groups
-    public static ElementBase[] ElementGroups
+    public static readonly ElementBase[] ElementGroups
         = {FireStatic, IceStatic, LightStatic};
 
 
@@ -32,4 +41,6 @@ public static class ObjectGroups
 
 
     #endregion
+
+
 }
