@@ -10,6 +10,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private MovementAttributes _movementAttributes;
     [SerializeField] private Vector2 _moveInput;
 
+
     private Rigidbody2D _rigidbody;
 
     #region property
@@ -32,9 +33,12 @@ public class CharacterMovement : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+
         _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         _rigidbody.interpolation = RigidbodyInterpolation2D.Interpolate;
         _rigidbody.gravityScale = 0f;
+
+
 
         //LookDirection = _animator.transform.forward;
     }

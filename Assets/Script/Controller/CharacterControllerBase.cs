@@ -19,19 +19,22 @@ public class CharacterControllerBase : Controller
     protected BuffEffect[] _buffEffects;
     protected DataTable _dataTable;
     protected Inventory _inventory;
+    protected Transform _transform;
+
 
     #region property
     public DataTable DataTable => _dataTable;
-    public Inventory PropertyList => _inventory;
+    public Inventory Inventory => _inventory;
 
     #endregion
 
-    protected void Awake()
+    protected virtual void Awake()
     {
+        _transform = GetComponent<Transform>();
         //_dataTable = DataTable.NewDataTable(maxHealth, currentHealth, maxMana, currentMana);
     }
 
-    protected void Start()
+    protected virtual void Start()
     {
         //GetComponent<BuffEffect>().RunEffect();
     }

@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+
 
 public class ItemBase : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    protected string _itemName;
+
+    protected virtual void Awake()
     {
-        
+        if (TryGetComponent<Collider2D>(out Collider2D collider))
+        {
+            collider.isTrigger = true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
